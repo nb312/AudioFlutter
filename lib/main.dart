@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'mine/MinePage.dart';
+import "home/HomePage.dart";
+import "find/FindPage.dart";
+import "listen/MyListenPage.dart";
 
 ///  Created by NieBin
 ///  Github: https://github.com/nb312
@@ -26,7 +30,7 @@ class HomeState extends State<HomeChangeApp> {
   int curIndex = 0;
 
   Text text(var pos) {
-    var textColor = curIndex == pos ? Colors.redAccent : Colors.blueGrey;
+    var textColor = curIndex == pos ? Colors.deepOrange : Colors.blueGrey;
     var fontSize = curIndex == pos ? 14.0 : 12.0;
     return Text(
       bottomStr[pos],
@@ -44,6 +48,13 @@ class HomeState extends State<HomeChangeApp> {
     );
   }
 
+  var soundImg = Image.asset(
+    "assets/drawable_xxhdpi_v4/host_theme_global_play_default.png",
+    width: 100.0,
+    height: 100.0,
+  );
+  var pages = [HomePage(), MyListenPage(), FindPage(), MinePage()];
+
   @override
   void initState() {
     super.initState();
@@ -52,22 +63,11 @@ class HomeState extends State<HomeChangeApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primaryColor: Colors.green),
+        theme: ThemeData(primaryColor: Colors.brown),
         home: Scaffold(
-            appBar: AppBar(
-              title: Text(
-                "Home Page",
-                style: TextStyle(fontSize: 20.0, color: Colors.white),
-              ),
-              backgroundColor: Colors.green,
-            ),
-            body: Text("Hello word!"),
+            body: pages[curIndex],
             floatingActionButton: FloatingActionButton(
-              child: Image.asset(
-                "assets/drawable_xxhdpi_v4/host_theme_global_play_default.png",
-                width: 100.0,
-                height: 100.0,
-              ),
+              child: soundImg,
               onPressed: () {
                 print("press the button.");
               },
