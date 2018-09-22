@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 /// Github: https://github.com/nb312
 /// Email: niebin312@gmail.com
 ///
-const image_root = "assets/drawable_xxhdpi_v4";
+const image_root = "assets/drawable_xxhdpi";
+const image_root_x = "assets/drawable_xhdpi";
 
 class HomePage extends StatefulWidget {
   @override
@@ -54,7 +55,7 @@ class HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var top = Container(
+    var top_1 = Container(
       child: Row(
         children: <Widget>[
           Expanded(
@@ -77,9 +78,55 @@ class HomeState extends State<HomePage> {
         ],
       ),
     );
+    var top_2 = Container(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+              child: Container(
+            padding: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                    "$image_root_x/component_icon_nav_sousuo_normal_low.png",
+                    width: 10.0,
+                    height: 10.0),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      print("this is search.");
+                    },
+                    child: Text(
+                      "红楼梦 | 牛大宝 有声书 | 十宗嘴",
+                      style: TextStyle(color: Colors.white, fontSize: 8.0),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+            ),
+          ))
+        ],
+      ),
+    );
+    var top = Container(
+      child: Column(
+        children: <Widget>[
+          Expanded(child: top_1),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 4.0),
+            child: top_2,
+          )
+        ],
+      ),
+    );
     return Scaffold(
-        appBar: AppBar(
-      title: top,
-    ));
+      appBar: AppBar(
+        title: top,
+      ),
+    );
   }
 }

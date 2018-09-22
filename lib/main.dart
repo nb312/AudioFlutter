@@ -42,14 +42,14 @@ class HomeState extends State<HomeChangeApp> {
     var path = images[pos][curIndex == pos ? 1 : 0];
     var size = curIndex == pos ? 46.0 : 40.0;
     return Image.asset(
-      "assets/drawable_xxhdpi_v4/$path",
+      "assets/drawable_xxhdpi/$path",
       width: size,
       height: size,
     );
   }
 
   var soundImg = Image.asset(
-    "assets/drawable_xxhdpi_v4/host_theme_global_play_default.png",
+    "assets/drawable_xxhdpi/host_theme_global_play_default.png",
     width: 100.0,
     height: 100.0,
   );
