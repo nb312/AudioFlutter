@@ -98,7 +98,7 @@ class HomeState extends State<HomePage> {
                     },
                     child: Text(
                       "红楼梦 | 牛大宝 有声书 | 十宗嘴",
-                      style: TextStyle(color: Colors.white, fontSize: 8.0),
+                      style: TextStyle(color: Colors.white, fontSize: 12.0),
                     ),
                   ),
                 )
@@ -108,7 +108,31 @@ class HomeState extends State<HomePage> {
               color: Colors.black12,
               borderRadius: BorderRadius.all(Radius.circular(12.0)),
             ),
-          ))
+          )),
+          GestureDetector(
+            onTap: () {
+              print("time is your.");
+            },
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+              child: Image.asset(
+                  "$image_root/host_theme_ic_title_bar_history_gold.png",
+                  width: 20.0,
+                  height: 20.0),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              print("download file.");
+            },
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, .0),
+              child: Image.asset(
+                  "$image_root/host_theme_ic_title_bar_download_gold.png",
+                  width: 20.0,
+                  height: 20.0),
+            ),
+          )
         ],
       ),
     );
